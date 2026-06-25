@@ -32,25 +32,46 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Connect the contact form (required before launch)
+## Connect the contact form → Google Sheet (required before launch)
 
-The form posts to [Formspree](https://formspree.io) (free, no-code) so
-submissions land in the owner's inbox. To wire it up:
+Submissions go straight into a Google Sheet that Holly owns, and the script
+emails Holly on every lead **and** sends the nonprofit an auto-reply. No
+third-party service, no monthly fee. The full script lives in
+[`apps-script/Code.gs`](apps-script/Code.gs).
 
-1. Create a free Formspree account and a new form.
-2. Copy your form endpoint (looks like `https://formspree.io/f/abc123xy`).
-3. In `index.html`, find the `<form ... action="...">` tag and replace
-   `https://formspree.io/f/your-form-id` with your real endpoint.
-4. (Recommended) In Formspree, turn on the **auto-response** so submitters get
-   a "Thanks — I'll be in touch within two business days" confirmation email.
+**Setup (one time, ~5 minutes, done in Holly's Google account):**
+
+1. Create a new **Google Sheet** (share it with `holly@cafeglobal.org` if
+   someone else owns it).
+2. In the Sheet: **Extensions → Apps Script**. Delete the sample code, paste
+   the entire contents of `apps-script/Code.gs`, and **Save**.
+3. **Deploy → New deployment → Web app**:
+   - *Execute as:* **Me**
+   - *Who has access:* **Anyone**
+   - Click **Deploy**, authorize when prompted, and copy the **Web app URL**
+     (ends in `/exec`).
+4. In `index.html`, find the `<form ... action="...">` tag and replace
+   `https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec`
+   with the URL you copied.
+
+That's it — the first submission creates the column headers automatically.
+
+> **Editing the script later?** You must redeploy for changes to go live:
+> **Deploy → Manage deployments → ✏️ → Version: New version → Deploy.** The
+> `/exec` URL stays the same, so the website needs no further changes.
 
 Until a real endpoint is set, the form validates but shows a notice instead of
-sending (so no submissions are silently lost during setup).
+sending (so nothing is silently lost during setup).
 
 **Form fields captured:** contact name, email, organization name, organization
 type, 501(c)(3) status (Yes/No/Pending), website (optional), and a message —
 exactly the data needed to qualify a lead and prep for the listening session.
-A hidden honeypot field (`_gotcha`) helps filter spam.
+A hidden honeypot field (`_gotcha`) silently filters spam bots.
+
+*(Prefer a hosted form service instead? The site also supports a
+[Formspree](https://formspree.io) endpoint — just paste a `formspree.io/f/...`
+URL into the same `action` attribute; the JavaScript auto-detects which one
+you're using.)*
 
 ## Deploy
 

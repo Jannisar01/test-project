@@ -397,14 +397,19 @@
         </header>
 
         <!--
-          FORM SETUP: Replace the action URL below with your own Formspree
-          endpoint (https://formspree.io — free, no-code). Submissions will then
-          be delivered straight to your inbox. See README.md for full steps.
+          FORM SETUP → Google Sheet (free, no third-party service):
+          1. Create a Google Sheet in Holly's account; share it with
+             holly@cafeglobal.org.
+          2. Extensions → Apps Script; paste apps-script/Code.gs from this repo.
+          3. Deploy → New deployment → Web app (Execute as: Me, Access: Anyone).
+          4. Paste the resulting .../exec URL into the action attribute below.
+          Full steps are in README.md. Submissions land in the Sheet and email
+          Holly automatically.
         -->
         <form
           class="contact-form"
           id="consultation-form"
-          action="https://formspree.io/f/your-form-id"
+          action="https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec"
           method="POST"
           novalidate
         >

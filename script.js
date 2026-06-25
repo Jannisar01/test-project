@@ -108,48 +108,52 @@
       return;
     }
 
-    // If the action endpoint is still the placeholder, don't fire a real POST.
-    if (form.getAttribute("action").indexOf("your-form-id") !== -1) {
+    var action = form.getAttribute("action") || "";
+
+    // If the action endpoint is still a placeholder, don't fire a real POST.
+    if (
+      action.indexOf("REPLACE_WITH_YOUR_DEPLOYMENT_ID") !== -1 ||
+      action.indexOf("your-form-id") !== -1
+    ) {
       e.preventDefault();
       setStatus(
-        "Thanks! This form isn't connected to an email endpoint yet. " +
-          "Add your Formspree form ID in index.html to start receiving submissions.",
+        "Thanks! This form isn't connected yet. Follow the Google Sheet setup " +
+          "in README.md, then paste your deployment URL into index.html.",
         "failure"
       );
       return;
     }
 
-    // Progressive enhancement: submit via fetch so the visitor stays on-page.
-    if (window.fetch) {
-      e.preventDefault();
-      var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.dataset.label = submitBtn.textContent;
-        submitBtn.textContent = "Sending…";
-      }
+    var SUCCESS = "Thank you — your request is in. I'll be in touch within two business days.";
+    var isAppsScript = action.indexOf("script.google.com") !== -1;
 
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
-      })
-        .then(function (response) {
-          if (response.ok) {
-            form.reset();
-            setStatus(
-              "Thank you — your request is in. I'll be in touch within two business days.",
-              "success"
-            );
-          } else {
-            return response.json().then(function (data) {
-              var msg =
-                data && data.errors
-                  ? data.errors.map(function (er) { return er.message; }).join(", ")
-                  : "Something went wrong. Please email Holly@cafeglobal.org instead.";
-              setStatus(msg, "failure");
-            });
-          }
+    // No fetch (very old browser): let the form POST normally.
+    if (!window.fetch) return;
+
+    e.preventDefault();
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.dataset.label = submitBtn.textContent;
+      submitBtn.textContent = "Sending…";
+    }
+
+    function restoreBtn() {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn.dataset.label || "Submit";
+      }
+    }
+
+    if (isAppsScript) {
+      // Google Apps Script web apps don't send CORS headers, so we POST in
+      // "no-cors" mode. The response is opaque (unreadable) but the request
+      // still reaches the script and writes the row — so a resolved promise
+      // means success.
+      fetch(action, { method: "POST", mode: "no-cors", body: new FormData(form) })
+        .then(function () {
+          form.reset();
+          setStatus(SUCCESS, "success");
         })
         .catch(function () {
           setStatus(
@@ -157,13 +161,36 @@
             "failure"
           );
         })
-        .finally(function () {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.label || "Submit";
-          }
-        });
+        .finally(restoreBtn);
+      return;
     }
-    // If fetch is unavailable, the form submits normally (no preventDefault).
+
+    // Formspree-style JSON endpoint (kept as an alternative).
+    fetch(action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          form.reset();
+          setStatus(SUCCESS, "success");
+        } else {
+          return response.json().then(function (data) {
+            var msg =
+              data && data.errors
+                ? data.errors.map(function (er) { return er.message; }).join(", ")
+                : "Something went wrong. Please email Holly@cafeglobal.org instead.";
+            setStatus(msg, "failure");
+          });
+        }
+      })
+      .catch(function () {
+        setStatus(
+          "Network error — please email Holly@cafeglobal.org and I'll respond personally.",
+          "failure"
+        );
+      })
+      .finally(restoreBtn);
   });
 })();
