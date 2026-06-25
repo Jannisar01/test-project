@@ -241,6 +241,40 @@ textarea:focus-visible {
 }
 .awareness-link:hover { text-decoration: underline; }
 
+/* ---------- Sector band ---------- */
+.sectors {
+  background: var(--teal-deep);
+  color: #fff;
+  padding-block: 2rem;
+}
+.sectors-heading {
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.25rem;
+}
+.sector-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2.5rem;
+}
+.sector-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: #fff;
+}
+.sector-icon { font-size: 1.4rem; }
+
 /* ---------- Services ---------- */
 .services { background: var(--bg); }
 .card-grid {
@@ -276,6 +310,42 @@ textarea:focus-visible {
   font-size: 1.25rem;
 }
 .card p { color: var(--muted); margin-bottom: 0; font-size: 1rem; }
+
+/* ---------- How it works ---------- */
+.how { background: var(--bg); border-top: 1px solid var(--line); }
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  counter-reset: step;
+}
+.step {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem 1.75rem;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  margin-bottom: 0.85rem;
+}
+.step h3 { color: var(--teal-deep); font-size: 1.2rem; }
+.step p { color: var(--muted); margin-bottom: 0; }
+.how-cta { text-align: center; margin-top: 2.5rem; }
 
 /* ---------- About ---------- */
 .about { background: var(--white); }
@@ -319,6 +389,70 @@ textarea:focus-visible {
   margin: 0 auto 2rem;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.15rem;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials { background: var(--bg); }
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.quote {
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+.quote blockquote {
+  margin: 0 0 0.85rem;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.quote figcaption { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--white); }
+.faq-inner { max-width: 760px; margin-inline: auto; }
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+  background: var(--bg);
+  overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.25rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--teal-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--teal);
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+.faq-item[open] summary::after { content: "−"; }
+.faq-item summary:hover { color: var(--teal); }
+.faq-item p {
+  margin: 0;
+  padding: 0 1.25rem 1.2rem;
+  color: var(--muted);
 }
 
 /* ---------- Contact form ---------- */

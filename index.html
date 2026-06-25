@@ -18,6 +18,16 @@
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cafeglobal.org" />
+  <meta property="og:image" content="https://cafeglobal.org/assets/og-image.jpg" />
+  <meta property="og:image:alt" content="Café Global — Grant Writing for Nonprofits" />
+  <meta property="og:site_name" content="Café Global" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Café Global · Grant Writing for Nonprofits" />
+  <meta
+    name="twitter:description"
+    content="You're mission-driven. Grant writing shouldn't hold you back. Start your free consultation."
+  />
+  <meta name="twitter:image" content="https://cafeglobal.org/assets/og-image.jpg" />
 
   <link rel="canonical" href="https://cafeglobal.org" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -31,6 +41,43 @@
   />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data: helps Google understand the business (local SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Café Global",
+    "description": "Grant writing services for nonprofits — grant research, proposal writing, and post-award reporting & compliance.",
+    "url": "https://cafeglobal.org",
+    "email": "Holly@cafeglobal.org",
+    "founder": { "@type": "Person", "name": "Holly Selwitschka" },
+    "areaServed": "United States",
+    "knowsAbout": [
+      "Grant writing",
+      "Grant research",
+      "Nonprofit fundraising",
+      "Proposal writing",
+      "Grant compliance reporting"
+    ],
+    "serviceType": [
+      "Grant Research & Opportunity Identification",
+      "Grant Proposal Writing",
+      "Post-Award Reporting & Compliance"
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Nonprofit organizations in women's services, the arts, education, and community building"
+    }
+  }
+  </script>
+
+  <!--
+    ANALYTICS (optional): privacy-friendly, cookie-free. Create a free site at
+    https://plausible.io for "cafeglobal.org", then uncomment the line below.
+    No banner or consent pop-up required.
+  -->
+  <!-- <script defer data-domain="cafeglobal.org" src="https://plausible.io/js/script.js"></script> -->
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -44,8 +91,9 @@
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#services">Services</a>
+        <a href="#how">How It Works</a>
         <a href="#about">About</a>
-        <a href="#consultation">Free Consultation</a>
+        <a href="#faq">FAQ</a>
         <a class="btn btn-sm" href="#contact">Contact</a>
       </nav>
     </div>
@@ -81,6 +129,19 @@
           proposals — that's exactly what I do.
         </p>
         <a class="awareness-link" href="#services">Here's how it works →</a>
+      </div>
+    </section>
+
+    <!-- ============ SECTORS ============ -->
+    <section class="sectors" aria-labelledby="sectors-heading">
+      <div class="container">
+        <h2 id="sectors-heading" class="sectors-heading">Nonprofits I love working with</h2>
+        <ul class="sector-list">
+          <li><span class="sector-icon" aria-hidden="true">🌷</span>Women's services</li>
+          <li><span class="sector-icon" aria-hidden="true">🎭</span>The arts</li>
+          <li><span class="sector-icon" aria-hidden="true">📚</span>Education</li>
+          <li><span class="sector-icon" aria-hidden="true">🤝</span>Community building</li>
+        </ul>
       </div>
     </section>
 
@@ -133,6 +194,54 @@
       </div>
     </section>
 
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how section" id="how" aria-labelledby="how-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">How It Works</p>
+          <h2 id="how-heading">Getting started is simple</h2>
+          <p class="section-intro">
+            New to working with a grant writer? Here's the whole process — no
+            jargon, no surprises.
+          </p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3>Free consultation</h3>
+            <p>
+              We start with a relaxed listening session. You tell me about your
+              mission, your funding needs, and what you've already tried — no cost,
+              no commitment.
+            </p>
+          </li>
+          <li class="step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3>Research &amp; write</h3>
+            <p>
+              I find funding opportunities matched to your work and write
+              competitive, funder-focused proposals — handling the research,
+              drafting, and revisions for you.
+            </p>
+          </li>
+          <li class="step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3>Submit, win &amp; report</h3>
+            <p>
+              We submit on time, and when the award comes in I help with the
+              reporting and compliance — keeping you in good standing for future
+              funding.
+            </p>
+          </li>
+        </ol>
+
+        <div class="how-cta">
+          <a class="btn btn-lg" href="#contact">Start with a free consultation</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ ABOUT ============ -->
     <section class="about section" id="about" aria-labelledby="about-heading">
       <div class="container about-inner">
@@ -168,6 +277,96 @@
             the inside and genuinely wants to help you fund your mission.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS (ready to enable) ============ -->
+    <!--
+      When you have your first client quote, delete this comment wrapper and the
+      section below will appear. Add or remove <figure> blocks as needed.
+
+    <section class="testimonials section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Kind Words</p>
+          <h2 id="testimonials-heading">What clients say</h2>
+        </header>
+        <div class="quote-grid">
+          <figure class="quote">
+            <blockquote>"Holly made grant funding feel possible for the first time."</blockquote>
+            <figcaption>— Name, Title, Organization</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq section" id="faq" aria-labelledby="faq-heading">
+      <div class="container faq-inner">
+        <header class="section-head">
+          <p class="eyebrow">Questions</p>
+          <h2 id="faq-heading">Frequently asked questions</h2>
+          <p class="section-intro">
+            If you're new to hiring a grant writer, you're in good company — here
+            are the things nonprofits ask most.
+          </p>
+        </header>
+
+        <details class="faq-item">
+          <summary>What exactly does a grant writer do?</summary>
+          <p>
+            I find grant opportunities that fit your mission, write the proposals
+            that funders want to see, and help with the reporting after you win.
+            Think of it as borrowing an experienced development staffer — without
+            the full-time hire.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How much does it cost?</summary>
+          <p>
+            Every nonprofit is different, so I scope each engagement to your needs
+            and budget. The first consultation is always free — we'll talk through
+            options before you commit to anything.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens in the free consultation?</summary>
+          <p>
+            It's a relaxed listening session — usually a phone or video call. You
+            share your funding goals, what you've tried, and what's worked, and I'll
+            tell you honestly where I can help. No pressure and no pitch.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do we have to be a 501(c)(3)?</summary>
+          <p>
+            Most funders require it, but not all — and "pending" status is fine for
+            a conversation. Tell me where you are on the contact form and we'll
+            figure out the best path together.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can you guarantee we'll win a grant?</summary>
+          <p>
+            No one honestly can — funding is competitive. What I can promise is
+            well-researched, well-written, on-time proposals that give you a real
+            shot. My grants have succeeded about half the time, which is strong for
+            this field.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you work with organizations outside Wisconsin?</summary>
+          <p>
+            Yes — I work with nonprofits remotely, so location isn't a barrier.
+            Let's talk about your goals on a free consultation.
+          </p>
+        </details>
       </div>
     </section>
 
@@ -279,7 +478,7 @@
 
           <div class="field field-full form-actions">
             <button type="submit" class="btn btn-lg">Submit</button>
-            <p class="form-note">Your information is only used to prepare for our conversation.</p>
+            <p class="form-note">Your information is only used to prepare for our conversation. I never share or sell it.</p>
           </div>
 
           <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
