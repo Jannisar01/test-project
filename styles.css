@@ -743,3 +743,133 @@ textarea { resize: vertical; min-height: 120px; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ============================================================
+   BLOG / INSIGHTS
+   ============================================================ */
+.blog-main { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+.breadcrumb {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Blog index */
+.blog-hero { max-width: 46rem; margin: 0 auto 2.5rem; text-align: center; }
+.blog-hero h1 { color: var(--teal-deep); font-size: clamp(2rem, 5vw, 3rem); }
+.blog-hero p { color: var(--muted); font-size: 1.2rem; margin-inline: auto; }
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(180deg, var(--gold-soft), var(--line)) border-box;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.post-card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(20,51,41,.08), 0 16px 36px rgba(20,51,41,.14); }
+.post-card .cat {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--gold-dark);
+  margin-bottom: 0.5rem;
+}
+.post-card h2 { font-size: 1.35rem; color: var(--teal-deep); margin-bottom: 0.5rem; }
+.post-card p { color: var(--muted); font-size: 1.02rem; margin-bottom: 1rem; }
+.post-card .more { margin-top: auto; color: var(--teal); font-weight: 600; font-family: var(--sans); font-size: 0.95rem; }
+
+/* Single post */
+.post { max-width: 720px; margin-inline: auto; }
+.post-header { margin-bottom: 2rem; }
+.post-header .cat {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  color: var(--gold-dark);
+}
+.post-header h1 { color: var(--teal-deep); font-size: clamp(1.9rem, 4.5vw, 2.8rem); margin-top: 0.5rem; }
+.post-meta {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-top: 0.85rem;
+}
+.post article > p { font-size: 1.18rem; }
+.post h2 { color: var(--teal-deep); font-size: 1.6rem; margin-top: 2.2rem; }
+.post h3 { color: var(--teal-dark); font-size: 1.25rem; margin-top: 1.5rem; }
+.post ul, .post ol { padding-left: 1.3rem; }
+.post li { margin-bottom: 0.5rem; }
+.post a { color: var(--teal); }
+
+/* Answer-first key-takeaways box (AEO/GEO) */
+.takeaways {
+  background: rgba(44, 94, 79, 0.07);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+}
+.takeaways h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-deep);
+}
+.takeaways p, .takeaways ul { margin: 0; }
+.takeaways li { color: var(--ink); }
+
+/* In-post CTA */
+.post-cta {
+  margin: 2.5rem 0 1rem;
+  text-align: center;
+  background: linear-gradient(160deg, var(--teal-dark), var(--teal-deep));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 2.25rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.post-cta h2 { color: #fff; margin-top: 0; font-size: 1.6rem; }
+.post-cta p { color: rgba(255,255,255,0.9); margin-inline: auto; }
+
+/* Author note */
+.post-author {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 2.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.post-author img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.post-author p { margin: 0; font-size: 0.98rem; color: var(--muted); }
+.post-author strong { color: var(--teal-deep); }
+
+/* Related links */
+.related { margin-top: 2.5rem; }
+.related h2 { font-size: 1.3rem; color: var(--teal-deep); }
+.related ul { list-style: none; padding: 0; }
+.related a { color: var(--teal); font-weight: 500; }
