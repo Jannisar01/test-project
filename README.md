@@ -62,7 +62,7 @@ Any static host works. Fastest options:
 
 ## Customize
 
-- **Contact info:** update the email (`hello@cafeglobal.org`) and add a phone in
+- **Contact info:** update the email (`Holly@cafeglobal.org`) and add a phone in
   `index.html` (footer + form note) when ready.
 - **Headshot:** a professional photo builds trust fast — drop one into the hero
   or consultation section when available (noted as recommended in the brief).

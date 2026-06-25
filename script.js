@@ -146,14 +146,14 @@
               var msg =
                 data && data.errors
                   ? data.errors.map(function (er) { return er.message; }).join(", ")
-                  : "Something went wrong. Please email hello@cafeglobal.org instead.";
+                  : "Something went wrong. Please email Holly@cafeglobal.org instead.";
               setStatus(msg, "failure");
             });
           }
         })
         .catch(function () {
           setStatus(
-            "Network error — please email hello@cafeglobal.org and I'll respond personally.",
+            "Network error — please email Holly@cafeglobal.org and I'll respond personally.",
             "failure"
           );
         })
