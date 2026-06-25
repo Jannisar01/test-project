@@ -277,6 +277,33 @@ textarea:focus-visible {
 }
 .card p { color: var(--muted); margin-bottom: 0; font-size: 1rem; }
 
+/* ---------- About ---------- */
+.about { background: var(--white); }
+.about-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 360px) 1fr;
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  align-items: center;
+}
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.about-body h2 {
+  color: var(--teal-deep);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+.about-body p { color: var(--muted); }
+.about-body strong { color: var(--teal-deep); }
+
+@media (max-width: 720px) {
+  .about-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .about-photo { max-width: 320px; }
+  .about-body p { margin-inline: auto; }
+}
+
 /* ---------- Consultation ---------- */
 .consultation {
   background: linear-gradient(160deg, var(--teal-dark), var(--teal-deep));
