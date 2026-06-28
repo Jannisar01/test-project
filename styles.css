@@ -884,3 +884,19 @@ textarea { resize: vertical; min-height: 120px; }
 .related h2 { font-size: 1.3rem; color: var(--teal-deep); }
 .related ul { list-style: none; padding: 0; }
 .related a { color: var(--teal); font-weight: 500; }
+
+/* ---------- Brand logo (replaces placeholder mark) ---------- */
+.brand-logo {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+.footer-logo {
+  height: 54px;
+  width: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 640px) {
+  .brand-logo { height: 34px; }
+}
