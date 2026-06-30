@@ -8,7 +8,7 @@
     name="description"
     content="Trustworthy, hands-on grant writing help for mission-driven nonprofits. Grant research, proposal writing, and reporting & compliance. Start your free consultation."
   />
-  <meta name="theme-color" content="#1F6F6B" />
+  <meta name="theme-color" content="#4A5D6C" />
 
   <!-- Open Graph / social preview -->
   <meta property="og:title" content="Café Global · Grant Writing for Nonprofits" />
@@ -32,15 +32,15 @@
   <link rel="canonical" href="https://cafeglobal.org" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-  <!-- Fonts: Cinzel (engraved classical display) + EB Garamond (book serif) + Inter (UI) -->
+  <!-- Fonts: Playfair Display (elegant serif headings) + Montserrat (clean sans body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=90" />
 
   <!-- Structured data: helps Google understand the business (local SEO) -->
   <script type="application/ld+json">
@@ -80,177 +80,172 @@
   <!-- <script defer data-domain="cafeglobal.org" src="https://plausible.io/js/script.js"></script> -->
 </head>
 <body>
+  <!-- SVG filter powering the header's liquid-glass refraction/distortion -->
+  <svg class="glass-defs" aria-hidden="true" focusable="false">
+    <filter id="glass-distortion" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.013" numOctaves="2" seed="7" result="noise" />
+      <feGaussianBlur in="noise" stdDeviation="1.4" result="softNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="46" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <!-- GlassSurface (React Bits) chromatic-aberration displacement -->
+    <filter id="glass-surface-filter" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">
+      <feImage id="gs-feimage" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
+      <feDisplacementMap id="gs-red" in="SourceGraphic" in2="map" result="dispRed" />
+      <feColorMatrix in="dispRed" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
+      <feDisplacementMap id="gs-green" in="SourceGraphic" in2="map" result="dispGreen" />
+      <feColorMatrix in="dispGreen" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green" />
+      <feDisplacementMap id="gs-blue" in="SourceGraphic" in2="map" result="dispBlue" />
+      <feColorMatrix in="dispBlue" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue" />
+      <feBlend in="red" in2="green" mode="screen" result="rg" />
+      <feBlend in="rg" in2="blue" mode="screen" result="output" />
+      <feGaussianBlur id="gs-blur" in="output" stdDeviation="0" />
+    </filter>
+  </svg>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Café Global home">
-        <img class="brand-logo" src="assets/logo.png" alt="Café Global" width="900" height="390" />
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#how">How It Works</a>
-        <a href="#about">About</a>
-        <a href="blog/">Insights</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-sm" href="#contact">Contact</a>
-      </nav>
+    <div class="container header-wrap">
+      <div class="header-inner">
+        <button class="sm-toggle" id="sm-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sm-panel">
+          <span class="sm-toggle-text">Menu</span>
+          <span class="sm-icon" aria-hidden="true">
+            <span class="sm-icon-line"></span>
+            <span class="sm-icon-line sm-icon-line-v"></span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- ============ STAGGERED MENU ============ -->
+  <div class="staggered-menu" id="sm" data-position="right">
+    <div class="sm-prelayers" aria-hidden="true">
+      <div class="sm-prelayer" style="background:#A7D6E7"></div>
+      <div class="sm-prelayer" style="background:#33424E"></div>
+    </div>
+    <aside class="sm-panel" id="sm-panel" aria-hidden="true" aria-label="Menu">
+      <ul class="sm-list" role="list" data-numbering>
+        <li class="sm-itemWrap"><a class="sm-item" href="#services"><span class="sm-itemLabel">How I Help</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="#about"><span class="sm-itemLabel">About</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="blog/"><span class="sm-itemLabel">Insights</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="#faq"><span class="sm-itemLabel">FAQ</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="#contact"><span class="sm-itemLabel">Contact</span></a></li>
+      </ul>
+    </aside>
+  </div>
 
   <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-heading">
+      <!-- Café Global logo, top-left corner -->
+      <span class="hero-logo-wrap">
+        <img class="hero-logo-img" src="assets/cafe-global-logo.png?v=4" width="924" height="424" alt="Café Global logo" />
+      </span>
       <div class="container hero-inner">
-        <p class="eyebrow">Grant Writing for Nonprofits</p>
-        <h1 id="hero-heading">Grant Writing Services for Nonprofits</h1>
+        <p class="eyebrow">Where Mission Meets Momentum</p>
+        <h1 id="hero-heading">Grant Writing<br />Services for Mission-Driven<br />Organizations</h1>
         <p class="hero-sub">
-          You're mission-driven. Grant writing shouldn't hold you back.
-          Let's find your funding.
+          <span id="hero-type" class="type" role="text" aria-live="polite"></span><span class="type-cursor" aria-hidden="true">|</span>
         </p>
         <div class="hero-actions">
-          <a class="btn btn-lg" href="#contact">Start Your Free Consultation</a>
-          <a class="btn btn-ghost btn-lg" href="#services">See How It Works</a>
+          <span class="star-border">
+            <a class="btn btn-lg" href="#contact">Start Your Free Consultation</a>
+          </span>
         </div>
-        <p class="hero-sectors">
-          Serving women's services, the arts, education &amp; community building.
-        </p>
       </div>
+      <a class="scroll-cue" href="#awareness-heading" aria-label="Scroll down to learn more">
+        <span>Did you know you can hire a grant writer?</span>
+        <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </a>
     </section>
 
     <!-- ============ AWARENESS BAND ============ -->
-    <section class="awareness" aria-labelledby="awareness-heading">
+    <section class="awareness" id="awareness-heading">
       <div class="container awareness-inner">
-        <h2 id="awareness-heading">Did you know you can hire a grant writer?</h2>
-        <p class="dropcap">
+        <p class="dropcap" data-blurtext>
           Many nonprofits never realize this is an option. If grant funding feels
           out of reach because you don't have someone to research and write
           proposals — that's exactly what I do.
         </p>
-        <a class="awareness-link" href="#services">Here's how it works →</a>
       </div>
     </section>
 
-    <!-- ============ SECTORS ============ -->
-    <section class="sectors" aria-labelledby="sectors-heading">
-      <div class="container">
-        <h2 id="sectors-heading" class="sectors-heading">Nonprofits I love working with</h2>
-        <ul class="sector-list">
-          <li>Women's services</li>
-          <li>The arts</li>
-          <li>Education</li>
-          <li>Community building</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ SERVICES ============ -->
-    <section class="services section" id="services" aria-labelledby="services-heading">
+    <!-- ============ MAGIC BENTO — LIGHT VARIANT ============ -->
+    <!-- DEMO A: light, brand-matched. Compare with the dark demo below
+         and delete whichever you don't want to keep. -->
+    <section class="bento-section bento-section--light section" id="services"
+             aria-labelledby="bento-light-heading">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">What I Do</p>
-          <h2 id="services-heading">Three ways I help you win funding</h2>
+          <p class="eyebrow">How I Help</p>
+          <h2 id="bento-light-heading">Everything you need to win funding</h2>
           <p class="section-intro">
             Hands-on support across the full grant lifecycle — so your team can
             stay focused on your mission.
           </p>
         </header>
 
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="14" cy="14" r="8" /><line x1="20" y1="20" x2="27" y2="27" />
-              </svg>
+        <div class="bento-grid bento--light" data-bento data-glow="74, 93, 108"
+             data-particles="7" data-spotlight="320">
+          <!-- Process (How It Works) -->
+          <article class="bento-card bento-card--process">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 9 v7 l5 3"/></svg>
             </div>
-            <h3>Grant Research &amp; Opportunity Identification</h3>
-            <p>
-              I identify grant opportunities aligned with your mission and budget.
-              Instead of spending weeks hunting through databases, you get a
-              curated list of realistic funding sources — community foundations,
-              humanities councils, state grants — matched to your sector and
-              capacity. You'll know exactly where to apply.
-            </p>
+            <h3>How it works — start to finish</h3>
+            <p>New to working with a grant writer? Here's the whole process — no jargon, no surprises.</p>
+            <ol class="bento-steps">
+              <li><span class="n">1</span><div><h4>Free consultation</h4><p>A relaxed listening session about your mission, funding needs, and what you've tried — no cost, no commitment.</p></div></li>
+              <li><span class="n">2</span><div><h4>Research &amp; write</h4><p>I find matched funding opportunities and write competitive, funder-focused proposals for you.</p></div></li>
+              <li><span class="n">3</span><div><h4>Submit, win &amp; report</h4><p>We submit on time, and I help with reporting and compliance so you stay in good standing.</p></div></li>
+            </ol>
+            <a class="btn btn-sm bento-cta-btn" href="#contact">Start with a free consultation</a>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 5 l6 6 -14 14 -7 1 1 -7 z" /><line x1="18" y1="8" x2="24" y2="14" />
-              </svg>
+          <!-- Service 1 -->
+          <article class="bento-card">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="8"/><line x1="20" y1="20" x2="27" y2="27"/></svg>
             </div>
-            <h3>Grant Proposal Writing</h3>
-            <p>
-              I write competitive, funder-focused proposals tailored to each
-              funder's priorities and requirements. I handle the research,
-              drafting, and revisions so your team stays focused on your mission.
-            </p>
+            <h3>Grant Research</h3>
+            <p>A curated list of realistic funding sources — community foundations, humanities councils, state grants — matched to your sector and capacity.</p>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M8 4 h12 l6 6 v18 h-18 z" /><path d="M20 4 v6 h6" />
-                <line x1="12" y1="17" x2="22" y2="17" /><line x1="12" y1="21" x2="22" y2="21" /><line x1="12" y1="25" x2="18" y2="25" />
-              </svg>
+          <!-- Service 2 -->
+          <article class="bento-card">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5 l6 6 -14 14 -7 1 1 -7 z"/><line x1="18" y1="8" x2="24" y2="14"/></svg>
+            </div>
+            <h3>Proposal Writing</h3>
+            <p>Competitive, funder-focused proposals tailored to each funder's priorities — I handle research, drafting, and revisions.</p>
+          </article>
+
+          <!-- Service 3 (wide) -->
+          <article class="bento-card bento-card--wide">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 h12 l6 6 v18 h-18 z"/><path d="M20 4 v6 h6"/><line x1="12" y1="17" x2="22" y2="17"/><line x1="12" y1="21" x2="22" y2="21"/><line x1="12" y1="25" x2="18" y2="25"/></svg>
             </div>
             <h3>Post-Award Reporting &amp; Compliance</h3>
-            <p>
-              Winning a grant comes with reporting obligations. I help manage
-              compliance documentation, progress reports, and impact statements so
-              you stay in good standing with funders — and keep the door open for
-              future funding.
-            </p>
+            <p>I help manage compliance documentation, progress reports, and impact statements so you stay in good standing with funders — and keep the door open for future funding.</p>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="how section" id="how" aria-labelledby="how-heading">
-      <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">How It Works</p>
-          <h2 id="how-heading">Getting started is simple</h2>
-          <p class="section-intro">
-            New to working with a grant writer? Here's the whole process — no
-            jargon, no surprises.
-          </p>
-        </header>
+          <!-- Sectors (wide) -->
+          <article class="bento-card bento-card--wide">
+            <h3>Nonprofits I love working with</h3>
+            <p>Mission-driven organizations across the causes I know best.</p>
+            <div class="bento-sectors">
+              <span>Women's services</span><span>The arts</span>
+              <span>Education</span><span>Community building</span>
+            </div>
+          </article>
 
-        <ol class="steps">
-          <li class="step">
-            <div class="step-num" aria-hidden="true">1</div>
-            <h3>Free consultation</h3>
-            <p>
-              We start with a relaxed listening session. You tell me about your
-              mission, your funding needs, and what you've already tried — no cost,
-              no commitment.
-            </p>
-          </li>
-          <li class="step">
-            <div class="step-num" aria-hidden="true">2</div>
-            <h3>Research &amp; write</h3>
-            <p>
-              I find funding opportunities matched to your work and write
-              competitive, funder-focused proposals — handling the research,
-              drafting, and revisions for you.
-            </p>
-          </li>
-          <li class="step">
-            <div class="step-num" aria-hidden="true">3</div>
-            <h3>Submit, win &amp; report</h3>
-            <p>
-              We submit on time, and when the award comes in I help with the
-              reporting and compliance — keeping you in good standing for future
-              funding.
-            </p>
-          </li>
-        </ol>
-
-        <div class="how-cta">
-          <a class="btn btn-lg" href="#contact">Start with a free consultation</a>
+          <!-- CTA (wide) -->
+          <article class="bento-card bento-card--wide">
+            <h3>Ready to find your funding?</h3>
+            <p>Book a free, no-pressure consultation and we'll map out your next grant together.</p>
+            <a class="btn btn-sm bento-cta-btn" href="#contact">Start your free consultation</a>
+          </article>
         </div>
       </div>
     </section>
@@ -260,18 +255,26 @@
       <div class="container about-inner">
         <div class="about-photo">
           <img
-            src="assets/holly-selwitschka.jpg"
-            srcset="assets/holly-selwitschka-sm.jpg 420w, assets/holly-selwitschka.jpg 760w"
+            src="assets/holly-about.jpeg"
             sizes="(max-width: 720px) 80vw, 360px"
-            width="760"
-            height="950"
-            alt="Holly Selwitschka, founder of Café Global, standing in an art gallery"
+            width="3255"
+            height="4284"
+            alt="Holly Selwitschka, founder of Café Global"
             loading="lazy"
           />
         </div>
         <div class="about-body">
           <p class="eyebrow">Meet Your Grant Writer</p>
-          <h2 id="about-heading">Hi, I'm Holly Selwitschka</h2>
+          <h2 id="about-heading">Hi, I'm
+            <span class="focus-container" data-true-focus data-blur="5" data-duration="0.6" data-pause="1.2">
+              <span class="focus-word">Holly</span>
+              <span class="focus-word">Selwitschka</span>
+              <span class="focus-frame" aria-hidden="true">
+                <span class="corner top-left"></span><span class="corner top-right"></span>
+                <span class="corner bottom-left"></span><span class="corner bottom-right"></span>
+              </span>
+            </span>
+          </h2>
           <p class="dropcap">
             I'm the founder of Café Global and a public library director in
             Wisconsin. I've spent my career inside mission-driven, community-serving
@@ -279,11 +282,11 @@
             tight budget.
           </p>
           <p>
-            I've researched, written, and won grants firsthand — through community
-            foundations, humanities councils, and state programs — with about a
-            <strong>50% success rate</strong>. I started Café Global to bring that
-            same hands-on help to nonprofits that can't staff a full-time grant
-            writer.
+            I've been writing grants for <strong>over 25 years</strong> —
+            researching, writing, and winning funding through community
+            foundations, humanities councils, and state programs. I started Café
+            Global to bring that same hands-on help to nonprofits that can't staff
+            a full-time grant writer.
           </p>
           <p>
             No jargon and no pressure — just someone who understands your world from
@@ -326,60 +329,69 @@
           </p>
         </header>
 
-        <details class="faq-item">
-          <summary>What exactly does a grant writer do?</summary>
-          <p>
-            I find grant opportunities that fit your mission, write the proposals
-            that funders want to see, and help with the reporting after you win.
-            Think of it as borrowing an experienced development staffer — without
-            the full-time hire.
-          </p>
-        </details>
+        <!-- AnimatedList (React Bits) ported to vanilla — scrollable, scroll-in
+             animation, gradient fades, hover/arrow selection -->
+        <div class="scroll-list-container faq-list faq-marquee" data-animated-list data-loop>
+          <div class="scroll-list no-scrollbar" aria-label="Frequently asked questions list">
+            <div class="al-track">
+            <details class="faq-item al-item" data-index="0">
+              <summary>What exactly does a grant writer do?</summary>
+              <p>
+                I find grant opportunities that fit your mission, write the proposals
+                that funders want to see, and help with the reporting after you win.
+                Think of it as borrowing an experienced development staffer — without
+                the full-time hire.
+              </p>
+            </details>
 
-        <details class="faq-item">
-          <summary>How much does it cost?</summary>
-          <p>
-            Every nonprofit is different, so I scope each engagement to your needs
-            and budget. The first consultation is always free — we'll talk through
-            options before you commit to anything.
-          </p>
-        </details>
+            <details class="faq-item al-item" data-index="1">
+              <summary>How much does it cost?</summary>
+              <p>
+                Every nonprofit is different, so I scope each engagement to your needs
+                and budget. The first consultation is always free — we'll talk through
+                options before you commit to anything.
+              </p>
+            </details>
 
-        <details class="faq-item">
-          <summary>What happens in the free consultation?</summary>
-          <p>
-            It's a relaxed listening session — usually a phone or video call. You
-            share your funding goals, what you've tried, and what's worked, and I'll
-            tell you honestly where I can help. No pressure and no pitch.
-          </p>
-        </details>
+            <details class="faq-item al-item" data-index="2">
+              <summary>What happens in the free consultation?</summary>
+              <p>
+                It's a relaxed listening session — usually a phone or video call. You
+                share your funding goals, what you've tried, and what's worked, and I'll
+                tell you honestly where I can help. No pressure and no pitch.
+              </p>
+            </details>
 
-        <details class="faq-item">
-          <summary>Do we have to be a 501(c)(3)?</summary>
-          <p>
-            Most funders require it, but not all — and "pending" status is fine for
-            a conversation. Tell me where you are on the contact form and we'll
-            figure out the best path together.
-          </p>
-        </details>
+            <details class="faq-item al-item" data-index="3">
+              <summary>Do we have to be a 501(c)(3)?</summary>
+              <p>
+                Most funders require it, but not all — and "pending" status is fine for
+                a conversation. Tell me where you are on the contact form and we'll
+                figure out the best path together.
+              </p>
+            </details>
 
-        <details class="faq-item">
-          <summary>Can you guarantee we'll win a grant?</summary>
-          <p>
-            No one honestly can — funding is competitive. What I can promise is
-            well-researched, well-written, on-time proposals that give you a real
-            shot. My grants have succeeded about half the time, which is strong for
-            this field.
-          </p>
-        </details>
+            <details class="faq-item al-item" data-index="4">
+              <summary>Can you guarantee we'll win a grant?</summary>
+              <p>
+                No one honestly can — funding is competitive. What I can promise is
+                well-researched, well-written, on-time proposals that give you a real
+                shot, backed by over 25 years of hands-on grant-writing experience.
+              </p>
+            </details>
 
-        <details class="faq-item">
-          <summary>Do you work with organizations outside Wisconsin?</summary>
-          <p>
-            Yes — I work with nonprofits remotely, so location isn't a barrier.
-            Let's talk about your goals on a free consultation.
-          </p>
-        </details>
+            <details class="faq-item al-item" data-index="5">
+              <summary>Do you work with organizations outside Wisconsin?</summary>
+              <p>
+                Yes — I work with nonprofits remotely, so location isn't a barrier.
+                Let's talk about your goals on a free consultation.
+              </p>
+            </details>
+            </div>
+          </div>
+          <div class="top-gradient" aria-hidden="true"></div>
+          <div class="bottom-gradient" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
@@ -509,7 +521,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img class="footer-logo" src="assets/logo-light.png" alt="Café Global" width="900" height="390" />
+        <img class="footer-logo" src="assets/cafe-global-logo.png?v=4" width="924" height="424" alt="Café Global" />
         <p class="footer-tag">Grant Writing for Nonprofits</p>
       </div>
       <div class="footer-contact">
@@ -528,6 +540,13 @@
     </div>
   </footer>
 
-  <script src="script.js?v=11" defer></script>
+  <script src="script.js?v=12" defer></script>
+  <script src="texttype.js?v=1" defer></script>
+  <script src="blurtext.js?v=2" defer></script>
+  <script src="staggeredmenu.js?v=2" defer></script>
+  <script src="glasssurface.js?v=1" defer></script>
+  <script src="magicbento.js?v=1" defer></script>
+  <script src="animatedlist.js?v=3" defer></script>
+  <script src="truefocus.js?v=1" defer></script>
 </body>
 </html>

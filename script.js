@@ -11,6 +11,26 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  // Transparent header: frost up when floating over a dark section so the
+  // slate brand/nav stay legible (toggles a class the CSS reacts to).
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var darkSections = [].slice.call(
+      document.querySelectorAll(".bento-section--dark, .consultation, .site-footer")
+    );
+    var probeY = 44; // approx vertical center of the fixed header
+    var probe = function () {
+      var onDark = darkSections.some(function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top <= probeY && r.bottom >= probeY;
+      });
+      header.classList.toggle("on-dark", onDark);
+    };
+    window.addEventListener("scroll", probe, { passive: true });
+    window.addEventListener("resize", probe);
+    probe();
+  }
+
   var form = document.getElementById("consultation-form");
   if (!form) return;
 
