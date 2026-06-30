@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Global · Grant Writing Services for Nonprofits</title>
+  <meta
+    name="description"
+    content="Trustworthy, hands-on grant writing help for mission-driven nonprofits. Grant research, proposal writing, and reporting & compliance. Start your free consultation."
+  />
+  <meta name="theme-color" content="#4A5D6C" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Café Global · Grant Writing for Nonprofits" />
+  <meta
+    property="og:description"
+    content="You're mission-driven. Grant writing shouldn't hold you back. Start your free consultation."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cafeglobal.org" />
+  <meta property="og:image" content="https://cafeglobal.org/assets/og-image.jpg" />
+  <meta property="og:image:alt" content="Café Global — Grant Writing for Nonprofits" />
+  <meta property="og:site_name" content="Café Global" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Café Global · Grant Writing for Nonprofits" />
+  <meta
+    name="twitter:description"
+    content="You're mission-driven. Grant writing shouldn't hold you back. Start your free consultation."
+  />
+  <meta name="twitter:image" content="https://cafeglobal.org/assets/og-image.jpg" />
+
+  <link rel="canonical" href="https://cafeglobal.org" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts: Playfair Display (elegant serif headings) + Montserrat (clean sans body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css?v=90" />
+
+  <!-- Structured data: helps Google understand the business (local SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Café Global",
+    "description": "Grant writing services for nonprofits — grant research, proposal writing, and post-award reporting & compliance.",
+    "url": "https://cafeglobal.org",
+    "email": "Holly@cafeglobal.org",
+    "founder": { "@type": "Person", "name": "Holly Selwitschka" },
+    "areaServed": "United States",
+    "knowsAbout": [
+      "Grant writing",
+      "Grant research",
+      "Nonprofit fundraising",
+      "Proposal writing",
+      "Grant compliance reporting"
+    ],
+    "serviceType": [
+      "Grant Research & Opportunity Identification",
+      "Grant Proposal Writing",
+      "Post-Award Reporting & Compliance"
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Nonprofit organizations in women's services, the arts, education, and community building"
+    }
+  }
+  </script>
+
+  <!--
+    ANALYTICS (optional): privacy-friendly, cookie-free. Create a free site at
+    https://plausible.io for "cafeglobal.org", then uncomment the line below.
+    No banner or consent pop-up required.
+  -->
+  <!-- <script defer data-domain="cafeglobal.org" src="https://plausible.io/js/script.js"></script> -->
+</head>
+<body>
+  <!-- SVG filter powering the header's liquid-glass refraction/distortion -->
+  <svg class="glass-defs" aria-hidden="true" focusable="false">
+    <filter id="glass-distortion" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.013" numOctaves="2" seed="7" result="noise" />
+      <feGaussianBlur in="noise" stdDeviation="1.4" result="softNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="46" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <!-- GlassSurface (React Bits) chromatic-aberration displacement -->
+    <filter id="glass-surface-filter" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">
+      <feImage id="gs-feimage" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
+      <feDisplacementMap id="gs-red" in="SourceGraphic" in2="map" result="dispRed" />
+      <feColorMatrix in="dispRed" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
+      <feDisplacementMap id="gs-green" in="SourceGraphic" in2="map" result="dispGreen" />
+      <feColorMatrix in="dispGreen" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green" />
+      <feDisplacementMap id="gs-blue" in="SourceGraphic" in2="map" result="dispBlue" />
+      <feColorMatrix in="dispBlue" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue" />
+      <feBlend in="red" in2="green" mode="screen" result="rg" />
+      <feBlend in="rg" in2="blue" mode="screen" result="output" />
+      <feGaussianBlur id="gs-blur" in="output" stdDeviation="0" />
+    </filter>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-wrap">
+      <div class="header-inner">
+        <button class="sm-toggle" id="sm-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sm-panel">
+          <span class="sm-toggle-text">Menu</span>
+          <span class="sm-icon" aria-hidden="true">
+            <span class="sm-icon-line"></span>
+            <span class="sm-icon-line sm-icon-line-v"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ STAGGERED MENU ============ -->
+  <div class="staggered-menu" id="sm" data-position="right">
+    <div class="sm-prelayers" aria-hidden="true">
+      <div class="sm-prelayer" style="background:#A7D6E7"></div>
+      <div class="sm-prelayer" style="background:#33424E"></div>
+    </div>
+    <aside class="sm-panel" id="sm-panel" aria-hidden="true" aria-label="Menu">
+      <ul class="sm-list" role="list" data-numbering>
+        <li class="sm-itemWrap"><a class="sm-item" href="#services"><span class="sm-itemLabel">How I Help</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="#about"><span class="sm-itemLabel">About</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="blog/"><span class="sm-itemLabel">Insights</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="#faq"><span class="sm-itemLabel">FAQ</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="#contact"><span class="sm-itemLabel">Contact</span></a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <!-- Café Global logo, top-left corner -->
+      <span class="hero-logo-wrap">
+        <img class="hero-logo-img" src="assets/cafe-global-logo.png?v=4" width="924" height="424" alt="Café Global logo" />
+      </span>
+      <div class="container hero-inner">
+        <p class="eyebrow">Where Mission Meets Momentum</p>
+        <h1 id="hero-heading">Grant Writing<br />Services for Mission-Driven<br />Organizations</h1>
+        <p class="hero-sub">
+          <span id="hero-type" class="type" role="text" aria-live="polite"></span><span class="type-cursor" aria-hidden="true">|</span>
+        </p>
+        <div class="hero-actions">
+          <span class="star-border">
+            <a class="btn btn-lg" href="#contact">Start Your Free Consultation</a>
+          </span>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#awareness-heading" aria-label="Scroll down to learn more">
+        <span>Did you know you can hire a grant writer?</span>
+        <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </a>
+    </section>
+
+    <!-- ============ AWARENESS BAND ============ -->
+    <section class="awareness" id="awareness-heading">
+      <div class="container awareness-inner">
+        <p class="dropcap" data-blurtext>
+          Many nonprofits never realize this is an option. If grant funding feels
+          out of reach because you don't have someone to research and write
+          proposals — that's exactly what I do.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ MAGIC BENTO — LIGHT VARIANT ============ -->
+    <!-- DEMO A: light, brand-matched. Compare with the dark demo below
+         and delete whichever you don't want to keep. -->
+    <section class="bento-section bento-section--light section" id="services"
+             aria-labelledby="bento-light-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">How I Help</p>
+          <h2 id="bento-light-heading">Everything you need to win funding</h2>
+          <p class="section-intro">
+            Hands-on support across the full grant lifecycle — so your team can
+            stay focused on your mission.
+          </p>
+        </header>
+
+        <div class="bento-grid bento--light" data-bento data-glow="74, 93, 108"
+             data-particles="7" data-spotlight="320">
+          <!-- Process (How It Works) -->
+          <article class="bento-card bento-card--process">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 9 v7 l5 3"/></svg>
+            </div>
+            <h3>How it works — start to finish</h3>
+            <p>New to working with a grant writer? Here's the whole process — no jargon, no surprises.</p>
+            <ol class="bento-steps">
+              <li><span class="n">1</span><div><h4>Free consultation</h4><p>A relaxed listening session about your mission, funding needs, and what you've tried — no cost, no commitment.</p></div></li>
+              <li><span class="n">2</span><div><h4>Research &amp; write</h4><p>I find matched funding opportunities and write competitive, funder-focused proposals for you.</p></div></li>
+              <li><span class="n">3</span><div><h4>Submit, win &amp; report</h4><p>We submit on time, and I help with reporting and compliance so you stay in good standing.</p></div></li>
+            </ol>
+            <a class="btn btn-sm bento-cta-btn" href="#contact">Start with a free consultation</a>
+          </article>
+
+          <!-- Service 1 -->
+          <article class="bento-card">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="8"/><line x1="20" y1="20" x2="27" y2="27"/></svg>
+            </div>
+            <h3>Grant Research</h3>
+            <p>A curated list of realistic funding sources — community foundations, humanities councils, state grants — matched to your sector and capacity.</p>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="bento-card">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5 l6 6 -14 14 -7 1 1 -7 z"/><line x1="18" y1="8" x2="24" y2="14"/></svg>
+            </div>
+            <h3>Proposal Writing</h3>
+            <p>Competitive, funder-focused proposals tailored to each funder's priorities — I handle research, drafting, and revisions.</p>
+          </article>
+
+          <!-- Service 3 (wide) -->
+          <article class="bento-card bento-card--wide">
+            <div class="bento-card-icon" aria-hidden="true">
+              <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 h12 l6 6 v18 h-18 z"/><path d="M20 4 v6 h6"/><line x1="12" y1="17" x2="22" y2="17"/><line x1="12" y1="21" x2="22" y2="21"/><line x1="12" y1="25" x2="18" y2="25"/></svg>
+            </div>
+            <h3>Post-Award Reporting &amp; Compliance</h3>
+            <p>I help manage compliance documentation, progress reports, and impact statements so you stay in good standing with funders — and keep the door open for future funding.</p>
+          </article>
+
+          <!-- Sectors (wide) -->
+          <article class="bento-card bento-card--wide">
+            <h3>Nonprofits I love working with</h3>
+            <p>Mission-driven organizations across the causes I know best.</p>
+            <div class="bento-sectors">
+              <span>Women's services</span><span>The arts</span>
+              <span>Education</span><span>Community building</span>
+            </div>
+          </article>
+
+          <!-- CTA (wide) -->
+          <article class="bento-card bento-card--wide">
+            <h3>Ready to find your funding?</h3>
+            <p>Book a free, no-pressure consultation and we'll map out your next grant together.</p>
+            <a class="btn btn-sm bento-cta-btn" href="#contact">Start your free consultation</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about" aria-labelledby="about-heading">
+      <div class="container about-inner">
+        <div class="about-photo">
+          <img
+            src="assets/holly-about.jpeg"
+            sizes="(max-width: 720px) 80vw, 360px"
+            width="3255"
+            height="4284"
+            alt="Holly Selwitschka, founder of Café Global"
+            loading="lazy"
+          />
+        </div>
+        <div class="about-body">
+          <p class="eyebrow">Meet Your Grant Writer</p>
+          <h2 id="about-heading">Hi, I'm
+            <span class="focus-container" data-true-focus data-blur="5" data-duration="0.6" data-pause="1.2">
+              <span class="focus-word">Holly</span>
+              <span class="focus-word">Selwitschka</span>
+              <span class="focus-frame" aria-hidden="true">
+                <span class="corner top-left"></span><span class="corner top-right"></span>
+                <span class="corner bottom-left"></span><span class="corner bottom-right"></span>
+              </span>
+            </span>
+          </h2>
+          <p class="dropcap">
+            I'm the founder of Café Global and a public library director in
+            Wisconsin. I've spent my career inside mission-driven, community-serving
+            organizations — so I know what it's like to do big, important work on a
+            tight budget.
+          </p>
+          <p>
+            I've been writing grants for <strong>over 25 years</strong> —
+            researching, writing, and winning funding through community
+            foundations, humanities councils, and state programs. I started Café
+            Global to bring that same hands-on help to nonprofits that can't staff
+            a full-time grant writer.
+          </p>
+          <p>
+            No jargon and no pressure — just someone who understands your world from
+            the inside and genuinely wants to help you fund your mission.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS (ready to enable) ============ -->
+    <!--
+      When you have your first client quote, delete this comment wrapper and the
+      section below will appear. Add or remove <figure> blocks as needed.
+
+    <section class="testimonials section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Kind Words</p>
+          <h2 id="testimonials-heading">What clients say</h2>
+        </header>
+        <div class="quote-grid">
+          <figure class="quote">
+            <blockquote>"Holly made grant funding feel possible for the first time."</blockquote>
+            <figcaption>— Name, Title, Organization</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq section" id="faq" aria-labelledby="faq-heading">
+      <div class="container faq-inner">
+        <header class="section-head">
+          <p class="eyebrow">Questions</p>
+          <h2 id="faq-heading">Frequently asked questions</h2>
+          <p class="section-intro">
+            If you're new to hiring a grant writer, you're in good company — here
+            are the things nonprofits ask most.
+          </p>
+        </header>
+
+        <!-- AnimatedList (React Bits) ported to vanilla — scrollable, scroll-in
+             animation, gradient fades, hover/arrow selection -->
+        <div class="scroll-list-container faq-list faq-marquee" data-animated-list data-loop>
+          <div class="scroll-list no-scrollbar" aria-label="Frequently asked questions list">
+            <div class="al-track">
+            <details class="faq-item al-item" data-index="0">
+              <summary>What exactly does a grant writer do?</summary>
+              <p>
+                I find grant opportunities that fit your mission, write the proposals
+                that funders want to see, and help with the reporting after you win.
+                Think of it as borrowing an experienced development staffer — without
+                the full-time hire.
+              </p>
+            </details>
+
+            <details class="faq-item al-item" data-index="1">
+              <summary>How much does it cost?</summary>
+              <p>
+                Every nonprofit is different, so I scope each engagement to your needs
+                and budget. The first consultation is always free — we'll talk through
+                options before you commit to anything.
+              </p>
+            </details>
+
+            <details class="faq-item al-item" data-index="2">
+              <summary>What happens in the free consultation?</summary>
+              <p>
+                It's a relaxed listening session — usually a phone or video call. You
+                share your funding goals, what you've tried, and what's worked, and I'll
+                tell you honestly where I can help. No pressure and no pitch.
+              </p>
+            </details>
+
+            <details class="faq-item al-item" data-index="3">
+              <summary>Do we have to be a 501(c)(3)?</summary>
+              <p>
+                Most funders require it, but not all — and "pending" status is fine for
+                a conversation. Tell me where you are on the contact form and we'll
+                figure out the best path together.
+              </p>
+            </details>
+
+            <details class="faq-item al-item" data-index="4">
+              <summary>Can you guarantee we'll win a grant?</summary>
+              <p>
+                No one honestly can — funding is competitive. What I can promise is
+                well-researched, well-written, on-time proposals that give you a real
+                shot, backed by over 25 years of hands-on grant-writing experience.
+              </p>
+            </details>
+
+            <details class="faq-item al-item" data-index="5">
+              <summary>Do you work with organizations outside Wisconsin?</summary>
+              <p>
+                Yes — I work with nonprofits remotely, so location isn't a barrier.
+                Let's talk about your goals on a free consultation.
+              </p>
+            </details>
+            </div>
+          </div>
+          <div class="top-gradient" aria-hidden="true"></div>
+          <div class="bottom-gradient" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FREE CONSULTATION ============ -->
+    <section class="consultation section" id="consultation" aria-labelledby="consultation-heading">
+      <div class="container consultation-inner">
+        <p class="eyebrow eyebrow-light">No pressure, no pitch</p>
+        <h2 id="consultation-heading">Let's Talk Strategy — Free Consultation</h2>
+        <p class="consultation-body">
+          Before any proposals or research, let's listen. We'll explore your
+          nonprofit's funding needs, what you've already tried, what's worked, and
+          where I can add the most value. No pressure, no pitch — just an honest
+          conversation about your grant strategy.
+        </p>
+        <a class="btn btn-lg" href="#contact">Request Your Consultation</a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT FORM ============ -->
+    <section class="contact section" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact-inner">
+        <header class="section-head">
+          <h2 id="contact-heading">Request a Free Consultation</h2>
+          <p class="section-intro">
+            Tell me a little about your organization and what you're hoping to
+            find. I'll be in touch within two business days.
+          </p>
+        </header>
+
+        <!--
+          FORM SETUP → Google Sheet (free, no third-party service):
+          1. Create a Google Sheet in Holly's account; share it with
+             holly@cafeglobal.org.
+          2. Extensions → Apps Script; paste apps-script/Code.gs from this repo.
+          3. Deploy → New deployment → Web app (Execute as: Me, Access: Anyone).
+          4. Paste the resulting .../exec URL into the action attribute below.
+          Full steps are in README.md. Submissions land in the Sheet and email
+          Holly automatically.
+        -->
+        <form
+          class="contact-form"
+          id="consultation-form"
+          action="https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec"
+          method="POST"
+          novalidate
+        >
+          <div class="field">
+            <label for="contact-name">Contact name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="contact-name" name="contact_name" autocomplete="name" required />
+            <p class="error" data-error-for="contact-name" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+            <p class="error" data-error-for="email" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="org-name">Organization name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="org-name" name="organization_name" autocomplete="organization" required />
+            <p class="error" data-error-for="org-name" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="org-type">Organization type <span class="req" aria-hidden="true">*</span></label>
+            <select id="org-type" name="organization_type" required>
+              <option value="" disabled selected>Select a sector…</option>
+              <option value="Women's services">Women's services</option>
+              <option value="The arts">The arts</option>
+              <option value="Education">Education</option>
+              <option value="Community building">Community building</option>
+              <option value="Other">Other</option>
+            </select>
+            <p class="error" data-error-for="org-type" hidden></p>
+          </div>
+
+          <fieldset class="field field-radio">
+            <legend>501(c)(3) status <span class="req" aria-hidden="true">*</span></legend>
+            <div class="radio-row">
+              <label class="radio">
+                <input type="radio" name="nonprofit_status" value="Yes" required />
+                <span>Yes</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="nonprofit_status" value="No" />
+                <span>No</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="nonprofit_status" value="Pending" />
+                <span>Pending</span>
+              </label>
+            </div>
+            <p class="error" data-error-for="nonprofit_status" hidden></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="website">Organization website <span class="optional">(optional)</span></label>
+            <input type="url" id="website" name="website" placeholder="https://" autocomplete="url" />
+            <p class="error" data-error-for="website" hidden></p>
+          </div>
+
+          <div class="field field-full">
+            <label for="message">What kind of help are you hoping to find? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <p class="error" data-error-for="message" hidden></p>
+          </div>
+
+          <!-- Honeypot anti-spam field (hidden from humans) -->
+          <div class="hp" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="field field-full form-actions">
+            <button type="submit" class="btn btn-lg">Submit</button>
+            <p class="form-note">Your information is only used to prepare for our conversation. I never share or sell it.</p>
+          </div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/cafe-global-logo.png?v=4" width="924" height="424" alt="Café Global" />
+        <p class="footer-tag">Grant Writing for Nonprofits</p>
+      </div>
+      <div class="footer-contact">
+        <p>
+          <a href="https://cafeglobal.org">cafeglobal.org</a>
+          · <a href="mailto:Holly@cafeglobal.org">Holly@cafeglobal.org</a>
+        </p>
+        <p class="footer-sectors">
+          Serving nonprofits in women's services, the arts, education, and
+          community building.
+        </p>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <p>&copy; <span id="year">2026</span> Café Global. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=12" defer></script>
+  <script src="texttype.js?v=1" defer></script>
+  <script src="blurtext.js?v=2" defer></script>
+  <script src="staggeredmenu.js?v=2" defer></script>
+  <script src="glasssurface.js?v=1" defer></script>
+  <script src="magicbento.js?v=1" defer></script>
+  <script src="animatedlist.js?v=3" defer></script>
+  <script src="truefocus.js?v=1" defer></script>
+</body>
+</html>
