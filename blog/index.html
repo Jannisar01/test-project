@@ -26,7 +26,7 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="../styles.css?v=11" />
+  <link rel="stylesheet" href="../styles.css?v=90" />
 
   <script type="application/ld+json">
   {
@@ -47,22 +47,59 @@
   </script>
 </head>
 <body>
+  <!-- SVG filter powering the header's liquid-glass refraction/distortion -->
+  <svg class="glass-defs" aria-hidden="true" focusable="false">
+    <filter id="glass-distortion" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.013" numOctaves="2" seed="7" result="noise" />
+      <feGaussianBlur in="noise" stdDeviation="1.4" result="softNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="46" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="glass-surface-filter" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">
+      <feImage id="gs-feimage" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
+      <feDisplacementMap id="gs-red" in="SourceGraphic" in2="map" result="dispRed" />
+      <feColorMatrix in="dispRed" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
+      <feDisplacementMap id="gs-green" in="SourceGraphic" in2="map" result="dispGreen" />
+      <feColorMatrix in="dispGreen" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green" />
+      <feDisplacementMap id="gs-blue" in="SourceGraphic" in2="map" result="dispBlue" />
+      <feColorMatrix in="dispBlue" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue" />
+      <feBlend in="red" in2="green" mode="screen" result="rg" />
+      <feBlend in="rg" in2="blue" mode="screen" result="output" />
+      <feGaussianBlur id="gs-blur" in="output" stdDeviation="0" />
+    </filter>
+  </svg>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- ============ HEADER (menu bubble) ============ -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="../" aria-label="Café Global home">
-        <img class="brand-logo" src="../assets/logo.png" alt="Café Global" width="900" height="390" />
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../#services">Services</a>
-        <a href="../#how">How It Works</a>
-        <a href="../#about">About</a>
-        <a href="./">Insights</a>
-        <a class="btn btn-sm" href="../#contact">Contact</a>
-      </nav>
+    <div class="container header-wrap">
+      <div class="header-inner">
+        <button class="sm-toggle" id="sm-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sm-panel">
+          <span class="sm-toggle-text">Menu</span>
+          <span class="sm-icon" aria-hidden="true">
+            <span class="sm-icon-line"></span>
+            <span class="sm-icon-line sm-icon-line-v"></span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- ============ STAGGERED MENU ============ -->
+  <div class="staggered-menu" id="sm" data-position="right">
+    <div class="sm-prelayers" aria-hidden="true">
+      <div class="sm-prelayer" style="background:#A7D6E7"></div>
+      <div class="sm-prelayer" style="background:#33424E"></div>
+    </div>
+    <aside class="sm-panel" id="sm-panel" aria-hidden="true" aria-label="Menu">
+      <ul class="sm-list" role="list" data-numbering>
+        <li class="sm-itemWrap"><a class="sm-item" href="../#services"><span class="sm-itemLabel">How I Help</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="../#about"><span class="sm-itemLabel">About</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="./"><span class="sm-itemLabel">Insights</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="../#faq"><span class="sm-itemLabel">FAQ</span></a></li>
+        <li class="sm-itemWrap"><a class="sm-item" href="../#contact"><span class="sm-itemLabel">Contact</span></a></li>
+      </ul>
+    </aside>
+  </div>
 
   <main id="main" class="blog-main">
     <div class="container">
@@ -143,5 +180,8 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="../script.js?v=12" defer></script>
+  <script src="../staggeredmenu.js?v=2" defer></script>
+  <script src="../glasssurface.js?v=1" defer></script>
 </body>
 </html>
