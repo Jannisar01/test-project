@@ -560,7 +560,7 @@ body.menu-open .site-footer { transform: translateX(calc(-1 * var(--menu-w))); }
   padding: clamp(2rem, 6vw, 4rem) 0;
   text-align: center;
 }
-.hero .eyebrow { color: var(--teal-deep); text-align: center; max-width: none; margin-inline: auto; }
+.hero .eyebrow { color: var(--teal-deep); text-align: center; max-width: none; margin-inline: auto; font-size: 0.936rem; }
 .hero h1 {
   color: var(--teal-deep);
   font-size: clamp(2rem, 5.2vw, 3rem);
